@@ -13,7 +13,6 @@ var updatingtokenflag = false;
 var CookieExpiresHours = 7*24;
 
 var Code = GetQueryString('code');
-alert(Code);
 var State = GetQueryString('code');
 var ShangxunId; 
 var originItems = [];
@@ -54,7 +53,10 @@ if(!loaded)
             ShangxunId = $(this).attr('id');
     });  // 获取整个网页文档对象来指定(商讯detial)
 
-
+    /* ===== Demo Popover ===== */
+    $('.popover a').on('click', function () {
+        myApp.closeModal('.popover');
+    });
 
     myApp.onPageInit('renmai-list', function (page) {
     var fn = ['张','李','王','孙','郝'];
