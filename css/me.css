@@ -1,0 +1,33 @@
+img.headicon{
+	width: 60px;
+	height: 60px;
+	border-radius: 5px;
+	border: #FAFAFA 1px solid;
+}
+
+.list-block .item-no{
+	white-space: nowrap;
+	color: #8e8e93;
+	-webkit-flex-shrink: 0;
+	-ms-flex: 0 0 auto;
+	flex-shrink: 0;
+	margin-left: 5px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+}
+
+.list-block .item-content{
+	min-height: 50px;
+}
+
+.list-block.inset{
+	margin-left: 8px;
+	margin-right: 8px;
+	border-radius: 4px;
+}
+
+.content-block-title{
+	margin:15px 10px 10px;
+}

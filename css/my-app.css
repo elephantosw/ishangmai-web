@@ -8,6 +8,9 @@
   font-size: 30px;
 }
 */
+body{
+  font-family: 14px/1.5 arial,"Microsoft Yahei","Hiragino Sans GB",sans-serif;
+}
 .page-content.notop{
   padding-top: 0px;
 }
@@ -63,6 +66,10 @@ i.tabbar-demo-icon-4 {
   -ms-flex-item-align: stretch;
   -webkit-align-self: stretch;
   align-self: stretch;
+}
+
+.item-func-linker-group a.like{
+  color:red;
 }
 
 .list-block.non .item-inner:after {

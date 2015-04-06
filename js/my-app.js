@@ -58,27 +58,19 @@ if(!loaded)
         myApp.closeModal('.popover');
     });
 
+    getfrinds();
     myApp.onPageInit('renmai-list', function (page) {
-    var fn = ['张','李','王','孙','郝'];
-    var sn = ['亮','小刚','二','四','小红','小明','三']
-    // Generate array with 10000 demo items:
-    originItems = [];
-    for (var i = 0; i < 10; i++) {
-        originItems.push({
-            name: fn[Math.floor(Math.random()*fn.length)] + sn[Math.floor(Math.random()*sn.length)],
-            title: 'Item ' + Math.round(Math.random() * 100),
-            type: '' + Math.floor(Math.random() * 3),
-            id: '' + i
-        });
-    }  
-
-
+    //getfrinds();
 //名字分组
     originItems.sort(function(a,b){
         return a.name.localeCompare(b.name);
     });
 
-var items = originItems.concat();
+    var items = [];
+    for (var i = 0; i < originItems.length; i++) {
+        if (originItems[i].type != 2)
+        items.push(originItems[i]);
+    };
 
 //类别分组
     items.sort(function(a,b){
@@ -86,7 +78,8 @@ var items = originItems.concat();
     });
 
 //插入分组名称
-    for(var i=0; i<3; i++){
+    for(var i=0; i<2; i++){
+        if((indexOfKeyValue(items,"type",i)) >= 0)
         items.splice((indexOfKeyValue(items,"type",i)), 0, {'Classify':i}); 
     }
 
@@ -142,10 +135,8 @@ var items = originItems.concat();
                 return '<li class="list-group-title">密友</li>';
             if(item.Classify == 1)
                 return '<li class="list-group-title">好友</li>';
-            if(item.Classify == 2)
-                return '<li class="list-group-title">黑名单</li>'; 
             if(item.type == 0)           
-            return  '<li class="swipeout">' +
+            return  '<li class="swipeout" id=' + item.id + '>' +
                       '<div class="swipeout-content item-content">' +
                       '<div class="item-media"><i class="icon icon-people2"></i></div>' +
                         '<div class="item-inner">' +
@@ -153,15 +144,15 @@ var items = originItems.concat();
                         '</div>' +
                       '</div>' +
                       '<div class="swipeout-actions-right">' +
-                        '<a href="#" class="toNF bg-orange" id=' + item.id + '>移至好友</a>' +                        
+                        '<a href="#" class="toNF bg-orange">移至好友</a>' +                        
                         '<a href="#" class="swipeout-delete" data-confirm="确定删除此好友?" data-confirm-title="删除密友" onclick="deleteItem('+ item.id +')">删除</a>' +
                       '</div>'  +
                       '<div class="swipeout-actions-left">' +
-                        '<a href="#" class="action bg-black" onclick="movefriend ()">移至黑名单</a>' +
+                        '<a href="#" class="toBL bg-black">移至黑名单</a>' +
                       '</div>' +
                     '</li>';
             if(item.type == 1)  
-            return  '<li class="swipeout">' +
+            return  '<li class="swipeout" id=' + item.id + '>' +
                       '<div class="swipeout-content item-content">' +
                       '<div class="item-media"><i class="icon icon-people2"></i></div>' +
                         '<div class="item-inner">' +
@@ -169,43 +160,35 @@ var items = originItems.concat();
                         '</div>' +
                       '</div>' +
                       '<div class="swipeout-actions-right">' +
-                        '<a href="#" class="toSF bg-orange" id=' + item.id + '>移至密友</a>' +                        
+                        '<a href="#" class="toSF bg-orange">移至密友</a>' +                        
                         '<a href="#" class="swipeout-delete" data-confirm="确定删除此好友?" data-confirm-title="删除好友" onclick="deleteItem('+ item.id +')">删除</a>' +
                       '</div>'  +
                       '<div class="swipeout-actions-left">' +
-                        '<a href="#" class="action bg-black" onclick="alert('+ item.id +')">移至黑名单</a>' +
+                        '<a href="#" class="toBL bg-black">移至黑名单</a>' +
                       '</div>' +
-                    '</li>';
-            if(item.type == 2)
-            return  '<li class="swipeout">' +
-                      '<div class="swipeout-content item-content">' +
-                      '<div class="item-media"><i class="icon icon-people2"></i></div>' +
-                        '<div class="item-inner">' +
-                          '<div class="item-title">' + item.name + '</div>' +
-                        '</div>' +
-                      '</div>' +
-                      '<div class="swipeout-actions-left">' +
-                        '<a href="#" class="action bg-black" onclick="movefriend ($(this))">移出黑名单</a>' +
-                      '</div>' +
-                    '</li>';                
+                    '</li>';             
         },
         // Item height
         height: function (item) {
             if (item.Classify !=undefined) return 31; //item with picture is 100px height
-            else return 47; //item without picture is 44px height
+            else return 50; //item without picture is 44px height
         }
     });
     $(document).on('click','.toNF.bg-orange',function(e){
-            var index = indexOfKeyValue(originItems,'id',$(this).attr('id'));
+            var index = indexOfKeyValue(originItems,'id',$(this).parent().parent().attr('id'));
             originItems[index].type = '1';
-            items = originItems.concat();
+            items = [];
+            for (var i = 0; i < originItems.length; i++) {
+                if (originItems[i].type != 2)
+                items.push(originItems[i]);
+            };
             //类别分组
                 items.sort(function(a,b){
                     return a.type > b.type ? 1 : -1;
                 });
-
             //插入分组名称
-                for(var i=0; i<3; i++){
+                for(var i=0; i<2; i++){
+                    if((indexOfKeyValue(items,"type",i)) >= 0)
                     items.splice((indexOfKeyValue(items,"type",i)), 0, {'Classify':i}); 
                 }
             //myList.items = items;
@@ -214,9 +197,59 @@ var items = originItems.concat();
     });
 
     $(document).on('click','.toSF.bg-orange',function(e){
-            var index = indexOfKeyValue(originItems,'id',$(this).attr('id'));
+            var index = indexOfKeyValue(originItems,'id',$(this).parent().parent().attr('id'));
             originItems[index].type = '0';
-            items = originItems.concat();
+            items = [];
+            for (var i = 0; i < originItems.length; i++) {
+                if (originItems[i].type != 2)
+                items.push(originItems[i]);
+            };
+            //类别分组
+                items.sort(function(a,b){
+                    return a.type > b.type ? 1 : -1;
+                });
+
+            //插入分组名称
+                for(var i=0; i<2; i++){
+                    if((indexOfKeyValue(items,"type",i)) >= 0)
+                    items.splice((indexOfKeyValue(items,"type",i)), 0, {'Classify':i}); 
+                }
+            //myList.items = items;
+            myApp.swipeoutDelete($(e.target).parent().parent());
+            myList.replaceAllItems(items);
+    });
+
+    $(document).on('click','.toBL.bg-black',function(e){
+            var index = indexOfKeyValue(originItems,'id',$(this).parent().parent().attr('id'));
+            originItems[index].type = '2';
+            items = [];
+            for (var i = 0; i < originItems.length; i++) {
+                if (originItems[i].type != 2)
+                items.push(originItems[i]);
+            };
+            //类别分组
+                items.sort(function(a,b){
+                    return a.type > b.type ? 1 : -1;
+                });
+
+            //插入分组名称
+                for(var i=0; i<2; i++){
+                    if((indexOfKeyValue(items,"type",i)) >= 0)
+                    items.splice((indexOfKeyValue(items,"type",i)), 0, {'Classify':i}); 
+                }
+            //myList.items = items;
+            myApp.swipeoutDelete($(e.target).parent().parent());
+            myList.replaceAllItems(items);
+    });
+
+    $(document).on('click','.outOfBL.bg-black',function(e){
+            var index = indexOfKeyValue(originItems,'id',$(this).parent().parent().attr('id'));
+            originItems[index].type = '1';
+            items = [];
+            for (var i = 0; i < originItems.length; i++) {
+                if (originItems[i].type != 2)
+                items.push(originItems[i]);
+            };
             //类别分组
                 items.sort(function(a,b){
                     return a.type > b.type ? 1 : -1;
@@ -224,12 +257,62 @@ var items = originItems.concat();
 
             //插入分组名称
                 for(var i=0; i<3; i++){
+                    if((indexOfKeyValue(items,"type",i)) >= 0)
                     items.splice((indexOfKeyValue(items,"type",i)), 0, {'Classify':i}); 
                 }
             //myList.items = items;
             myApp.swipeoutDelete($(e.target).parent().parent());
             myList.replaceAllItems(items);
     });
+
+    });
+
+    // Create virtual list
+    myApp.onPageInit('black-list', function (page) {
+    // Create virtual list
+    var items = [];
+    for (var i = 0; i < originItems.length; i++) {
+        if (originItems[i].type == 2)
+        items.push(originItems[i]);
+    };
+
+    var myBlackList = myApp.virtualList($$(page.container).find('.virtual-black-list'), {
+        // Pass array with items
+        items: items,
+        // List item Template7 template
+        renderItem: function(index, item){
+            console.log(item);
+            if(item.type == 2)
+            return  '<li class="swipeout" id=' + item.id + '>' +
+                      '<div class="swipeout-content item-content">' +
+                      '<div class="item-media"><i class="icon icon-people2"></i></div>' +
+                        '<div class="item-inner">' +
+                          '<div class="item-title">' + item.name + '</div>' +
+                        '</div>' +
+                      '</div>' +
+                      '<div class="swipeout-actions-left">' +
+                        '<a href="#" class="outOfBL bg-black" onclick="movefriend ($(this))">移出黑名单</a>' +
+                      '</div>' +
+                    '</li>';                
+        },
+        // Item height
+        height: function (item) {
+            return 50; //item without picture is 44px height
+        }
+    });
+
+    $(document).on('click','.outOfBL.bg-black',function(e){
+            var index = indexOfKeyValue(originItems,'id',$(this).parent().parent().attr('id'));
+            originItems[index].type = '1';
+            items = [];
+            for (var i = 0; i < originItems.length; i++) {
+                if (originItems[i].type == 2)
+                items.push(originItems[i]);
+            };
+            //myBlackList.items = items;
+            myApp.swipeoutDelete($(e.target).parent().parent());
+            myBlackList.replaceAllItems(items);
+    });    
 
     });
 
@@ -262,22 +345,34 @@ function showfriends(page){
 
 function getfrinds(completion)
 {
-    $.ajax({
-        url: home + '/api/people',
-        type: 'GET',
-        dataType: 'jsonp',
-        data:{"token":token,"uid":1}, 
-        //jsonp:'callback', 
-        success: function (data) {
-            console.log(data);
-            var response = data;
-            if(response.isProcessSuccess)
-            {
-                console.log(response);
-                completion(token,null);
-            }
-        }
-    });
+    // $.ajax({
+    //     url: home + '/api/people',
+    //     type: 'GET',
+    //     dataType: 'jsonp',
+    //     data:{"token":token,"uid":1}, 
+    //     //jsonp:'callback', 
+    //     success: function (data) {
+    //         console.log(data);
+    //         var response = data;
+    //         if(response.isProcessSuccess)
+    //         {
+    //             console.log(response);
+    //             completion(token,null);
+    //         }
+    //     }
+    // });
+    var fn = ['张','李','王','孙','郝'];
+    var sn = ['亮','小刚','二','四','小红','小明','三']
+    // Generate array with 10000 demo items:
+    originItems = [];
+    for (var i = 0; i < 10; i++) {
+        originItems.push({
+            name: fn[Math.floor(Math.random()*fn.length)] + sn[Math.floor(Math.random()*sn.length)],
+            title: 'Item ' + Math.round(Math.random() * 100),
+            type: '' + Math.floor(Math.random() * 3),
+            id: '' + i
+        });
+    }  
 }
 
 
