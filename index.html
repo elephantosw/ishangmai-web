@@ -15,6 +15,8 @@
     <!-- Path to your custom app styles-->
     <link rel="stylesheet" href="css/my-app.css">
     <link rel="stylesheet" href="css/me.css">
+    <link rel="stylesheet" href="css/act.css"> 
+    <link rel="stylesheet" href="css/bus-detail.css">  
   </head>
   <body>
     <!-- Status bar overlay for full screen mode (PhoneGap) -->
@@ -48,136 +50,14 @@
           <!-- Page, "data-page" contains page name -->
           <div data-page="index" class="page">
             <!-- Scrollable page content -->
-            <div class="page-content pull-to-refresh-content business">
+            <div class="page-content pull-to-refresh-content infinite-scroll business" data-distance="100">
             <div class="pull-to-refresh-layer">
               <div class="preloader"></div>
               <div class="pull-to-refresh-arrow"></div>
             </div>
               <div class="list-block non blc media-list">
                 <ul>
-                  <li class="swipeout" >
-                      <div class="swipeout-content" id="102">
-                            <a href="business-detail.html" class="item-link item-content">
-                              <div class="item-media"><img src="http://lorempixel.com/160/160/people/1" width="80"/></div>
-                              <div class="item-inner">
-                                <div class="item-title-row">
-                                  <div class="item-title">下拉刷新</div>
-                                  <div class="item-after time">17:14</div>
-                                </div>
-                                <div class="item-subtitle">New messages from John Doe</div>
-                                <div class="item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis tellus ut turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit amet, pharetra sodales eros. Phasellus vel felis tellus. Mauris rutrum ligula nec dapibus feugiat. In vel dui laoreet, commodo augue id, pulvinar lacus.</div>
-                               
-                              </div>
-                            </a>
-                            <div class="item-func-linker-group">
-                              <a href="#"><i class="fa fa-thumbs-o-up"></i>36</a>
-                              <a href="#"><i class="fa fa-share-alt"></i><span style="font-size:14px">转发</span></a>
-                              <a href="#"><i class="fa fa-comment-o"></i>12</a>
-                            </div>
-                      </div>
-                      <div class="swipeout-actions-left"><a href="#" class="bg-green swipeout-overswipe demo-reply">Reply</a><a href="#" class="demo-forward bg-blue">Forward</a></div>
-                      <div class="swipeout-actions-right"><a href="#" class="demo-actions">More</a><a href="#" class="demo-mark bg-orange">Mark</a><a href="#" data-confirm="Are you sure you want to delete this item?" class="swipeout-delete swipeout-overswipe">Delete</a></div>
-                  </li>
-                  <li class="swipeout">
-                      <div class="swipeout-content" id="101"><a href="#" class="item-link item-content">
-                          <div class="item-media"><img src="http://lorempixel.com/160/160/people/2" width="80"/></div>
-                          <div class="item-inner">
-                            <div class="item-title-row">
-                              <div class="item-title">Facebook</div>
-                              <div class="item-after time">13:01</div>
-                            </div>
-                            <div class="item-subtitle">New messages from John Doe</div>
-                            <div class="item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis tellus ut turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit amet, pharetra sodales eros. Phasellus vel felis tellus. Mauris rutrum ligula nec dapibus feugiat. In vel dui laoreet, commodo augue id, pulvinar lacus.</div>
-                          </div></a>
-                            <div class="item-func-linker-group">
-                              <a href="#"><i class="fa fa-thumbs-o-up"></i>15</a>
-                              <a href="#"><i class="fa fa-share-alt"></i><span style="font-size:14px">转发</span></a>
-                              <a href="#"><i class="fa fa-comment-o"></i>8</a>
-                            </div>
-                          </div>
-                      <div class="swipeout-actions-left"><a href="#" class="bg-green swipeout-overswipe demo-reply">Reply</a><a href="#" class="demo-forward bg-blue">Forward</a></div>
-                      <div class="swipeout-actions-right"><a href="#" class="demo-actions">More</a><a href="#" class="demo-mark bg-orange">Mark</a><a href="#" data-confirm="Are you sure you want to delete this item?" class="swipeout-delete swipeout-overswipe">Delete</a></div>
-                  </li>
-                  <li class="swipeout">
-                      <div class="swipeout-content"><a href="#" class="item-link item-content">
-                          <div class="item-media"><img src="http://lorempixel.com/160/160/people/3" width="80"/></div>
-                          <div class="item-inner">
-                            <div class="item-title-row">
-                              <div class="item-title">Facebook</div>
-                              <div class="item-after time">8:10</div>
-                            </div>
-                            <div class="item-subtitle">New messages from John Doe</div>
-                            <div class="item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis tellus ut turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit amet, pharetra sodales eros. Phasellus vel felis tellus. Mauris rutrum ligula nec dapibus feugiat. In vel dui laoreet, commodo augue id, pulvinar lacus.</div>
-                          </div></a>
-                            <div class="item-func-linker-group">
-                              <a href="#"><i class="fa fa-thumbs-o-up"></i>22</a>
-                              <a href="#"><i class="fa fa-share-alt"></i><span style="font-size:14px">转发</span></a>
-                              <a href="#"><i class="fa fa-comment-o"></i>4</a>
-                            </div>
-                          </div>
-                      <div class="swipeout-actions-left"><a href="#" class="bg-green swipeout-overswipe demo-reply">Reply</a><a href="#" class="demo-forward bg-blue">Forward</a></div>
-                      <div class="swipeout-actions-right"><a href="#" class="demo-actions">More</a><a href="#" class="demo-mark bg-orange">Mark</a><a href="#" data-confirm="Are you sure you want to delete this item?" class="swipeout-delete swipeout-overswipe">Delete</a></div>
-                  </li>
-                  <li class="swipeout">
-                      <div class="swipeout-content"><a href="#" class="item-link item-content">
-                          <div class="item-media"><img src="http://lorempixel.com/160/160/people/4" width="80"/></div>
-                          <div class="item-inner">
-                            <div class="item-title-row">
-                              <div class="item-title">Facebook</div>
-                              <div class="item-after time">昨天</div>
-                            </div>
-                            <div class="item-subtitle">New messages from John Doe</div>
-                            <div class="item-text"><h1>Lorem</h1> ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis tellus ut turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit amet, pharetra sodales eros. Phasellus vel felis tellus. Mauris rutrum ligula nec dapibus feugiat. In vel dui laoreet, commodo augue id, pulvinar lacus.</div>
-                          </div></a>
-                            <div class="item-func-linker-group">
-                              <a href="#"><i class="fa fa-thumbs-o-up"></i>15</a>
-                              <a href="#"><i class="fa fa-share-alt"></i><span style="font-size:14px">转发</span></a>
-                              <a href="#"><i class="fa fa-comment-o"></i>8</a>
-                            </div>
-                          </div>
-                      <div class="swipeout-actions-left"><a href="#" class="bg-green swipeout-overswipe demo-reply">Reply</a><a href="#" class="demo-forward bg-blue">Forward</a></div>
-                      <div class="swipeout-actions-right"><a href="#" class="demo-actions">More</a><a href="#" class="demo-mark bg-orange">Mark</a><a href="#" data-confirm="Are you sure you want to delete this item?" class="swipeout-delete swipeout-overswipe">Delete</a></div>
-                  </li>
-                  <li class="swipeout">
-                      <div class="swipeout-content"><a href="#" class="item-link item-content">
-                          <div class="item-media"><img src="http://lorempixel.com/160/160/people/5" width="80"/></div>
-                          <div class="item-inner">
-                            <div class="item-title-row">
-                              <div class="item-title">Facebook</div>
-                              <div class="item-after time">昨天</div>
-                            </div>
-                            <div class="item-subtitle">New messages from John Doe</div>
-                            <div class="item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis tellus ut turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit amet, pharetra sodales eros. Phasellus vel felis tellus. Mauris rutrum ligula nec dapibus feugiat. In vel dui laoreet, commodo augue id, pulvinar lacus.</div>
-                          </div></a>
-                            <div class="item-func-linker-group">
-                              <a href="#"><i class="fa fa-thumbs-o-up"></i>15</a>
-                              <a href="#"><i class="fa fa-share-alt"></i><span style="font-size:14px">转发</span></a>
-                              <a href="#"><i class="fa fa-comment-o"></i>8</a>
-                            </div>
-                          </div>
-                      <div class="swipeout-actions-left"><a href="#" class="bg-green swipeout-overswipe demo-reply">Reply</a><a href="#" class="demo-forward bg-blue">Forward</a></div>
-                      <div class="swipeout-actions-right"><a href="#" class="demo-actions">More</a><a href="#" class="demo-mark bg-orange">Mark</a><a href="#" data-confirm="Are you sure you want to delete this item?" class="swipeout-delete swipeout-overswipe">Delete</a></div>
-                  </li>
-                  <li class="swipeout">
-                      <div class="swipeout-content"><a href="#" class="item-link item-content">
-                          <div class="item-media"><img src="http://lorempixel.com/160/160/people/6" width="80"/></div>
-                          <div class="item-inner">
-                            <div class="item-title-row">
-                              <div class="item-title">Facebook</div>
-                              <div class="item-after time">昨天</div>
-                            </div>
-                            <div class="item-subtitle">New messages from John Doe</div>
-                            <div class="item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis tellus ut turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit amet, pharetra sodales eros. Phasellus vel felis tellus. Mauris rutrum ligula nec dapibus feugiat. In vel dui laoreet, commodo augue id, pulvinar lacus.</div>
-                          </div></a>
-                            <div class="item-func-linker-group">
-                              <a href="#"><i class="fa fa-thumbs-o-up"></i>15</a>
-                              <a href="#"><i class="fa fa-share-alt"></i><span style="font-size:14px">转发</span></a>
-                              <a href="#"><i class="fa fa-comment-o"></i>8</a>
-                            </div>
-                          </div>
-                      <div class="swipeout-actions-left"><a href="#" class="bg-green swipeout-overswipe demo-reply">Reply</a><a href="#" class="demo-forward bg-blue">Forward</a></div>
-                      <div class="swipeout-actions-right"><a href="#" class="demo-actions">More</a><a href="#" class="demo-mark bg-orange">Mark</a><a href="#" data-confirm="Are you sure you want to delete this item?" class="swipeout-delete swipeout-overswipe">Delete</a></div>
-                  </li>
+                  
                 </ul>
               </div>
             </div>
@@ -186,25 +66,25 @@
           <!-- Bottom Toolbar-->
         <div class="toolbar tabbar tabbar-labels">
             <div class="toolbar-inner">
-              <a href="index.html" class="link active" onclick="$('.toolbar-inner').find('.active').removeClass('active'); $(this).addClass('active')">  <!-- 第一次点击本页出现问题..已经解决..在 View 元素上加上 data-url 属性-->
+              <a href="index.html" class="link active no-animation" onclick="$('.toolbar-inner').find('.active').removeClass('active'); $(this).addClass('active')">  <!-- 第一次点击本页出现问题..已经解决..在 View 元素上加上 data-url 属性-->
                 <i class="icon tabbar-demo-icon-1"></i>
               <span class="tabbar-label">商讯</span>
               </a>
-              <a href="activities.html" class="link" onclick="$('.toolbar-inner').find('.active').removeClass('active'); $(this).addClass('active')">
+              <a href="activities.html" class="link no-animation" onclick="$('.toolbar-inner').find('.active').removeClass('active'); $(this).addClass('active')">
                 <i class="icon tabbar-demo-icon-2">
                   <span class="badge bg-red">1</span>
                 </i>
                 <span class="tabbar-label">活动</span>
               </a>
-              <a href="about.html" class="link" onclick="$('.toolbar-inner').find('.active').removeClass('active'); $(this).addClass('active')">
+              <a href="about.html" class="link no-animation" onclick="$('.toolbar-inner').find('.active').removeClass('active'); $(this).addClass('active')">
                 <i class="icon tabbar-demo-icon-3"></i>
                 <span class="tabbar-label">群体</span>
               </a>
-              <a href="renmai-list.html" class="link" onclick="$('.toolbar-inner').find('.active').removeClass('active'); $(this).addClass('active')">
+              <a href="renmai-list.html" class="link no-animation" onclick="$('.toolbar-inner').find('.active').removeClass('active'); $(this).addClass('active')">
                 <i class="icon tabbar-demo-icon-4"></i>
                 <span class="tabbar-label">人脉</span>
               </a>
-              <a href="me.html" class="link" onclick="$('.toolbar-inner').find('.active').removeClass('active'); $(this).addClass('active')">
+              <a href="me.html" class="link no-animation" onclick="$('.toolbar-inner').find('.active').removeClass('active'); $(this).addClass('active')">
                 <i class="icon tabbar-demo-icon-1"></i>
                 <span class="tabbar-label">我</span>
               </a>
@@ -225,13 +105,28 @@
         </div>
       </div>
     </div>
+    <!-- Picker -->
+    <div class="picker-modal picker-1">
+      <div class="toolbar messagebar messagebar-init" data-max-height="200">
+        <div class="toolbar-inner">
+          <textarea placeholder="Message"></textarea><a href="#" class="link">Send</a>
+        </div>
+      </div>  
+    </div>
     <!-- Path to Framework7 Library JS-->
-    <script type="text/javascript" src="js/framework7.min.js"></script>
-    <!-- Path to your app js-->
-    <script type="text/javascript" src="js/jquery-1.11.2.js"></script>
-    <script type="text/javascript" src="js/source-base.js"></script>
-    <script type="text/javascript" src="js/socket.js"></script>
-    <script type="text/javascript" src="js/pulltorefresh.js"></script>
-    <script type="text/javascript" src="js/my-app.js"></script>
+    <script type="text/javascript" src="js/vendor/framework7.min.js"></script>
+    
+    <!--Libary JS && Vendors-->
+    <script type="text/javascript" src="js/vendor/jquery-1.11.2.js"></script>
+    <script type="text/javascript" src="js/libs/source-base.js"></script>
+    <script type="text/javascript" src="js/libs/socket.js"></script>
+    <script type="text/javascript" src="js/libs/pulltorefresh.js"></script>
+    <script type="text/javascript" src="js/libs/moments.js"></script>
+    <script type="text/javascript" src="js/libs/pinyin.js"></script>
+    <!--App JS-->
+    <script type="text/javascript" src="js/constants.js"></script>
+    <script type="text/javascript" src="js/pages/page-business.js"></script>
+    <script type="text/javascript" src="js/pages/page-activities.js"></script>
+    <script type="text/javascript" src="js/core.js"></script>
   </body>
 </html>

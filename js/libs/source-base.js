@@ -47,7 +47,7 @@ function ajaxRequest(api,method,param,handler)
 			async: true,
 			url: api,
 			type: method,
-			data:param,
+			data: param,
 			success: function (data) {
 				var response = data;
 				if(response.isProcessSuccess)
@@ -72,8 +72,8 @@ function ajaxRequestJSONP(api,method,param,handler)
 			async: true,
 			url: api,
 			type: method,
-			data:param,
-			dataType:jsonp,
+			data: param,
+			dataType: 'jsonp',
 			success: function (data) {
 				var response = data;
 				if(response.isProcessSuccess)
@@ -173,14 +173,14 @@ function CheckMail(mail) {
 
 function getUrlParameter(sParam)
 {
-    var sPageURL = window.location.search.substring(1);
+    var sPageURL = window.location.href.split('?')[1];
     var sURLVariables = sPageURL.split('&');
     for (var i = 0; i < sURLVariables.length; i++) 
     {
         var sParameterName = sURLVariables[i].split('=');
         if (sParameterName[0] == sParam) 
         {
-            return sParameterName[1];
+            return sURLVariables[i].slice(sURLVariables[i].indexOf('=')+1);
         }
     }
 }  

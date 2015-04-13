@@ -1,0 +1,77 @@
+.act{
+	min-height: 40px;
+	margin: 10px 0 10px 0;
+	background-color: #fff;
+	font-family: Microsoft Yahei;
+}
+.act-container{
+	height: 100%;
+	margin: 0 0px 0 15px;
+}
+.act-header{
+	padding-top: 10px;
+	padding-bottom: 5px;
+}
+.act-header div{
+	font-weight: 400;
+	font-size: 14px;
+	color: black;
+}
+
+.act-content{
+	border-bottom: #EAEAEA 1px dashed;
+	padding-bottom: 4px;
+}
+
+.act-content .wrapper{
+	line-height: 130%;
+}
+
+.act-content .wrapper .act-time{
+	
+}
+.act-content .wrapper span{
+	margin-left: 2px;
+	font-weight: lighter;
+	letter-spacing: 1px;
+	font-size: 10px;
+	color: #777171;
+}
+.act .fa{
+	color: deepskyblue;
+	width: 10px;
+	height: 10px;
+}
+.act-content .wrapper .act-time .fa{
+	font-size: 10px;
+}
+.act-content .wrapper .act-loc{
+	
+}
+.act-content .wrapper .act-sub{
+	
+}
+.act-footer .footer-container{
+		
+}
+.act-footer .footer-container img{
+	border-radius: 5px;
+	vertical-align: middle;
+}
+.act-footer .footer-container div{
+	font-size: 10px;
+	color: rgb(103, 103, 103);
+	line-height: 41px;
+	margin-left: 5px;
+	display: inline-block;
+	text-overflow: ellipsis;
+	-webkit-line-clamp:1;
+}
+.act-footer .footer-container .right-align{
+	right: 15px;
+	position: fixed;
+	position: absolute;
+}
+
+.act-footer{
+}

@@ -1,0 +1,20 @@
+.business-detail .ks-facebook-card .card-header {
+  display: block;
+  padding: 10px;
+}
+
+.business-detail .ks-facebook-card .ks-facebook-avatar {
+  float: left;
+}
+
+.business-detail .ks-facebook-card .ks-facebook-name {
+  margin-left: 60px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.business-detail  .ks-facebook-card .ks-facebook-date {
+  margin-left: 60px;
+  font-size: 13px;
+  color: #8e8e93;
+}
